@@ -1,6 +1,6 @@
 import React from 'react';
-import './Display.css';
-import Time from './Time';
+import '../css/Display.css';
+import Time from '../lib/Time';
 
 const Display = (props) => {
     const time = new Time();

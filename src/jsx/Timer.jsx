@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Display from './Display.jsx';
 import Control from './Control.jsx';
+import InputControl from '../lib/InputControl';
 
 class Timer extends Component {
 
@@ -10,14 +11,18 @@ class Timer extends Component {
         clicked : null
     })
 
+    inputControl = new InputControl();
+
     state = Timer.initialState();
 
     timeInterval;
 
     handleChange = (e) => {
+        var formattedSeconds = this.inputControl.onSecondsChanged(e.target.value);
+
         this.setState({
-            timeInput: e.target.value,
-            currentTime: e.target.value * 1000,
+            timeInput: formattedSeconds,
+            currentTime: formattedSeconds * 1000,
         })
     }
 
@@ -62,6 +67,7 @@ class Timer extends Component {
                 <div>
                     <Control 
                         clicked={this.state.clicked}
+                        currentTime={this.state.currentTime}
                         handlePlay={this.startCount}
                         handleStop={this.stopCount}
                         handleReset={this.resetCount}

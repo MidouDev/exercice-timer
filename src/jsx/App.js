@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header.jsx';
-import './App.css';
-import './bootstrap.min.css'
+import '../css/bootstrap.min.css'
 import Timer from './Timer.jsx';
 
 class App extends Component {

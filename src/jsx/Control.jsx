@@ -1,5 +1,5 @@
 import React from 'react';
-import './Control.css';
+import '../css/Control.css';
 
 const Control = (props) => (
     <div className="">
@@ -9,7 +9,9 @@ const Control = (props) => (
                     {
                         props.clicked !== "started" 
                         ?
-                        <button className="btn btn-lg btn-success" onClick={props.handlePlay} >
+                        <button className="btn btn-lg btn-success" 
+                                onClick={props.handlePlay} 
+                                disabled={props.currentTime===0} >
                             <div className="text-right">
                                 <i className="fa fa-play fa-2x mr-2 mb-3"></i>
                             </div>
